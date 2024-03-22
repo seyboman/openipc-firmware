@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PJSIP
+	bool "pjsip"
+	default n
+	help
+	  Signaling protocol (SIP) library
+
+	  https://www.pjsip.org/

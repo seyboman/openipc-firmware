@@ -1,0 +1,10 @@
+--- a/modules/avcodec/module.mk	1970-01-01 03:00:00.000000000 +0300
++++ b/modules/avcodec/module.mk	1970-01-01 03:00:00.000000000 +0300
+@@ -10,7 +10,6 @@
+ $(MOD)_SRCS	+= encode.c
+ $(MOD)_SRCS	+= h263.c
+ $(MOD)_SRCS	+= sdp.c
+-$(MOD)_CFLAGS	+= -isystem /usr/local/include
+ $(MOD)_LFLAGS	+= `pkg-config --libs libavcodec libavutil`
+ 
+ include mk/mod.mk

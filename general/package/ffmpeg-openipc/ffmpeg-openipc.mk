@@ -8,7 +8,7 @@ FFMPEG_OPENIPC_VERSION = 4.4.2
 FFMPEG_OPENIPC_SOURCE = ffmpeg-$(FFMPEG_OPENIPC_VERSION).tar.xz
 FFMPEG_OPENIPC_SITE = http://ffmpeg.org/releases
 
-FFMPEG_OPENIPC_INSTALL_STAGING = NO
+FFMPEG_OPENIPC_INSTALL_STAGING = YES
 
 FFMPEG_OPENIPC_LICENSE = LGPL-2.1+, libjpeg license
 FFMPEG_OPENIPC_LICENSE_FILES = LICENSE.md COPYING.LGPLv2.1
@@ -25,19 +25,25 @@ FFMPEG_OPENIPC_CONF_OPTS = \
 	--disable-avdevice --disable-swscale --disable-postproc --disable-doc --disable-runtime-cpudetect \
 	--disable-bsfs --disable-iconv --disable-ffprobe --enable-gpl --enable-version3 --enable-pthreads \
 	\
-	--disable-swresample \
-	--disable-avdevice \
+	--enable-avdevice \
+	--enable-avformat \
+	--enable-swresample \
+	--enable-swscale \
+	--enable-postproc \
+   --enable-libx264 \
 	--disable-filters \
-	--disable-encoders \
-	--disable-decoders --enable-decoder=h264,hevc \
+	--disable-encoders --enable-encoder=libx264 \
+	--disable-decoders --enable-decoder=h264,pcm_s16be \
 	--disable-muxers --enable-muxer=flv,rtsp \
 	--disable-demuxers --enable-demuxer=h264,rtsp \
-	--disable-parsers --enable-parser=h264,hevc \
-	--disable-protocols --enable-protocol=file,rtmp,tcp \
-	--disable-programs --enable-ffmpeg --enable-small
+	--disable-parsers --enable-parser=h264 \
+	--disable-protocols --enable-protocol=file,rtmp,tcp,udp \
+   --enable-shared \
+	--disable-programs --enable-small
+#	--disable-programs --enable-ffmpeg --enable-small
 
 
-FFMPEG_OPENIPC_DEPENDENCIES += host-pkgconf
+FFMPEG_OPENIPC_DEPENDENCIES += host-pkgconf x264
 
 # Default to --cpu=generic for MIPS architecture, in order to avoid a
 # warning from ffmpeg's configure script.

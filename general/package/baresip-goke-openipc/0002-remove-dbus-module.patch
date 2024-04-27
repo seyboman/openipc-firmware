@@ -1,0 +1,26 @@
+--- a/mk/modules.mk	1970-01-01 03:00:00.000000000 +0300
++++ b/mk/modules.mk	1970-01-01 03:00:00.000000000 +0300
+@@ -62,7 +62,6 @@
+ USE_CONS    := 1
+ USE_G711    := 1
+ USE_L16     := 1
+-USE_DBUS    := 1
+ USE_HTTPREQ := 1
+ USE_NETROAM := 1
+ 
+@@ -93,15 +92,12 @@
+ USE_GST       := $(shell pkg-config --exists gstreamer-1.0 && echo "yes")
+ USE_GST_VIDEO := $(shell pkg-config --exists gstreamer-1.0 gstreamer-app-1.0 \
+ 		   && echo "yes")
+-USE_GTK       := $(shell pkg-config 'gtk+-3.0 >= 3.0' && \
+-		   pkg-config 'glib-2.0 >= 2.32' && echo "yes")
+ USE_JACK      := $(shell $(call CC_TEST,jack/jack.h))
+ USE_MPG123    := $(shell $(call CC_TEST,mpg123.h))
+ USE_OPUS      := $(shell $(call CC_TEST,opus/opus.h))
+ USE_OPUS_MS   := $(shell $(call CC_TEST,opus/opus_multistream.h))
+ USE_PLC       := $(shell $(call CC_TEST,spandsp/plc.h))
+ USE_PORTAUDIO := $(shell $(call CC_TEST,portaudio.h))
+-USE_PULSE     := $(shell pkg-config --exists libpulse && echo "yes")
+ USE_SDL       := $(shell $(call CC_TEST,SDL2/SDL.h))
+ USE_SNAPSHOT  := $(shell $(call CC_TEST,png.h))
+ USE_SNDFILE   := $(shell $(call CC_TEST,sndfile.h))

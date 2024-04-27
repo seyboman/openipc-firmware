@@ -10,6 +10,8 @@ HISILICON_OPENSDK_VERSION = HEAD
 HISILICON_OPENSDK_LICENSE = GPL-3.0
 HISILICON_OPENSDK_LICENSE_FILES = LICENSE
 
+HISILICON_OPENSDK_INSTALL_STAGING = YES
+
 HISILICON_OPENSDK_MODULE_SUBDIRS = kernel
 HISILICON_OPENSDK_MODULE_MAKE_OPTS = \
 	DISABLE_IST=1 \
@@ -34,9 +36,10 @@ define HISILICON_OPENSDK_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/usr/lib/sensors
 	$(INSTALL) -D -m 0644 $(@D)/libraries/sensor/$(OPENIPC_SOC_FAMILY)/sony_imx335/libsns_imx335.so $(TARGET_DIR)/usr/lib/sensors
 	$(INSTALL) -D -m 0644 $(@D)/libraries/sensor/$(OPENIPC_SOC_FAMILY)/sony_imx307/libsns_imx307.so $(TARGET_DIR)/usr/lib/sensors
+endef
 
-	$(INSTALL) -m 755 -d $(TARGET_DIR)/usr/include
-	$(INSTALL) -D -m 0644 $(@D)/include/*.h $(TARGET_DIR)/usr/include
+define HISILICON_OPENSDK_INSTALL_STAGING_CMDS
+	$(INSTALL) -D -m 0644 $(@D)/include/*.h $(STAGING_DIR)/usr/include
 endef
 
 $(eval $(kernel-module))

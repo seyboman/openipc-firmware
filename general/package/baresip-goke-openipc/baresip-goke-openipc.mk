@@ -5,9 +5,9 @@
 #############################################################
 
 BARESIP_GOKE_OPENIPC_SITE = $(call github,seyboman,baresip,$(BARESIP_GOKE_OPENIPC_VERSION))
-BARESIP_GOKE_OPENIPC_VERSION = goke_modules_v0.2
+BARESIP_GOKE_OPENIPC_VERSION = goke_modules_v0.4
 
-BARESIP_GOKE_OPENIPC_DEPENDENCIES = libre-openipc librem-openipc zlib hisilicon-opensdk
+BARESIP_GOKE_OPENIPC_DEPENDENCIES = libre-openipc librem-openipc zlib hisilicon-opensdk goke-osdrv-gk7205v200
 
 BARESIP_GOKE_OPENIPC_MAKE_ENV = \
 	$(TARGET_CONFIGURE_OPTS) \

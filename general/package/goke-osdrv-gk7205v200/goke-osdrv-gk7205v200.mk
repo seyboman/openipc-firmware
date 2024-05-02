@@ -14,6 +14,9 @@ define GOKE_OSDRV_GK7205V200_INSTALL_STAGING_CMDS
 	$(INSTALL) -m 755 -d $(STAGING_DIR)/usr/include/goke
 	#$(INSTALL) -m 644 -t $(STAGING_DIR)/usr/include/goke $(GOKE_OSDRV_GK7205V200_PKGDIR)/files/include/*
 
+	## $(INSTALL) -m 755 -d $(STAGING_DIR)/usr/lib
+	$(INSTALL) -m 644 -t $(STAGING_DIR)/usr/lib $(GOKE_OSDRV_GK7205V200_PKGDIR)/files/lib/*.so
+
 	## $(INSTALL) -m 755 -d $(BUILD_DIR)/goke-osdrv-gk7205v200/include
 	## $(INSTALL) -m 644 -t $(BUILD_DIR)/goke-osdrv-gk7205v200/include $(GOKE_OSDRV_GK7205V200_PKGDIR)/files/include/*
 
